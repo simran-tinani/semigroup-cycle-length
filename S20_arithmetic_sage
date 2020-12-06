@@ -1,4 +1,5 @@
-import math   
+
+    import math   
 import os
 import sys
 import random
@@ -456,6 +457,22 @@ class Polynomial:
             rpoly=rpoly.__pmul__(a)
         return rpoly        
             
+def gen_rand_poly(d1, d2): # generate a random polynomial with degree between d1 and d2
+    deg=random.randint(d1,d2)
+    coeffs=[0]*deg
+    coeffs= [random.choice([0,1,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r']) for i in range(0,deg)]
+    rpoly=Polynomial(*coeffs)
+    return rpoly     
+
+
+def pexp2(p, n): #  polynomial exponentiation by square and multiply
+        coeffs= [1]
+        rpoly=Polynomial(*coeffs)
+        for k in range(0,n):
+            rpoly=rpoly.__pmul__(p)
+        return rpoly 
+
+
 class Matrix2(object):
     """ A simple Python matrix class with
     basic operations and operator overloading """
@@ -565,7 +582,9 @@ class Matrix2(object):
     def __exp__(self, exponent):
         mat=self
         matm, matn = mat.getRank()
-        mulmat=Matrix2._makeMatrix([[1,0,0], [0,1,0], [0,0,1]])
+        mulmat = Matrix2(self.m, matn)
+        for z in range(0,matm):
+            mulmat[z][z]=1
         for i in range(0,exponent):
             mulmat=mulmat.__mul__(mat)
         return mulmat
@@ -683,10 +702,5 @@ class Matrix2(object):
 
         rows = listoflists[:]
         return cls._makeMatrix(rows)
-        
-def mat_exp(mat, exp):
-        matm, matn = mat.getRank()
-        multmat=Matrix2._makeMatrix([[1,0,0], [0,1,0], [0,0,1]])
-        for i in range(0,exp):
-            multmat=multmat.__mul__(mat)
-        return multmat
+
+
