@@ -1,0 +1,37 @@
+cycle_length:=function(a)
+match:=false;
+N:=1;
+while match eq false do
+N:=2*N;
+q:=Ceiling(Sqrt(N));        
+L:=0;
+xx:=[];
+y:=[];
+for i:=1 to q do
+xx := Append(xx, a^(N+i-1));
+if i gt 1 and xx[i] eq xx[1] then
+ L:=i-1;
+match:=true;
+return L, N;
+end if;
+end for;
+
+
+cycle_start:=function(x, L)
+s:=1;
+b:=1;
+while (x^(s+L) eq x^s) eq false do
+s:=2*s;
+b:=s/2;
+end while;
+while Abs(b-s) gt 1 do
+c:=(b+s)/2;
+if (x^(c+L) eq x^c) eq false then
+b:=c;
+else
+s:=c;
+end if;
+end while;
+return s;
+end function;
+
