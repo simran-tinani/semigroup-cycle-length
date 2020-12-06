@@ -35,3 +35,13 @@ end while;
 return s;
 end function;
 
+H:=AlternatingGroup(5);
+A:=GroupAlgebra(GF(7), H);
+
+for i:=1 to 40 do
+a:=Random(A);
+l:=cycle_length(a);
+print "cycle length:", l;
+print "cycle start:", cycle_start(a,l);
+end for;
+
