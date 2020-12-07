@@ -1,2 +1,3 @@
-# semigroup-dlp
-Algorithms for the DLP in torsion semigroups
+# semigroup-cycle-length
+
+This repository contains an implementation of the deterministic algorithhm for cycle lengths and starts in torsion semigroups, in the SAGE and MAGMA programming languages. The file magma_main contains the MAGMA code which may be used for all groups and semigroups predefined by the software (some examples we applied it to are the matrix rings over finite fields, the alternating and symmetric groups, and the group algebra Z_7[A_5]). On the other hand, we implement in SAGE the algorithm for the recently-deiscovered finite semiring S_20 and the matrix semigroups over it. The arithmetic and structure of S_20 are defined in the file sage_S20_arithmetic.py, while the descriptions of the cycle length functions for this category of semigroups are in sage_s20_functions.py. Finally, the file sage_s20_main.py contains the actual implementation of these functions on random elements in S_20 and matrices of different size over it.
