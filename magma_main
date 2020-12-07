@@ -45,3 +45,19 @@ print "cycle length:", l;
 print "cycle start:", cycle_start(a,l);
 end for;
 
+B:=AlternatingGroup(30);
+for i:=1 to 40 do
+a:=Random(B);
+l:=cycle_length(a);
+print "cycle length:", l;
+print "cycle start:", cycle_start(a,l);
+end for;
+
+C:=MatrixAlgebra(GF(11^3), 3);
+C:=Algebra(C);
+for i:=1 to 40 do
+a:=Random(C);
+l:=cycle_length(a);
+print "cycle length:", l;
+print "cycle start:", cycle_start(a,l);
+end for;
